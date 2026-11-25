@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz a risposta multipla per verificare la conoscenza di Voltaire.">
+  <title>Verifica le tue conoscenze | I Lumi in rete</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">L</span><span>I Lumi <em>in rete</em></span></a>
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <a href="index.html">01 · Scopri</a><a href="dialogo.html">02 · Dialoga</a><a class="active" aria-current="page" href="quiz.html">03 · Verifica</a>
+    </nav>
+  </div></header>
+  <main id="contenuto" class="page-wrap quiz-page">
+    <div class="page-title"><p class="eyebrow">03 · Verifica dell’apprendimento</p><h1>Metti alla prova<br><i>le tue idee</i></h1><p class="section-intro">10 domande per ripassare biografia, opere e temi centrali del pensiero di Voltaire. Per ogni risposta riceverai una spiegazione.</p></div>
+    <div class="quiz-meta"><span id="question-counter">Domanda 1 di 10</span><div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div><span id="score-live">Punti: 0</span></div>
+    <section id="quiz-card" class="quiz-card" aria-live="polite">
+      <p class="eyebrow" id="question-category">BIOGRAFIA</p>
+      <h2 id="question-text">Qual era il vero nome di Voltaire?</h2>
+      <div id="answer-options" class="answer-options">
+        <button class="answer-option">François-Marie Arouet</button>
+        <button class="answer-option">Jean-Jacques Rousseau</button>
+        <button class="answer-option">Charles-Louis de Secondat</button>
+        <button class="answer-option">Denis Diderot</button>
+      </div>
+      <div id="quiz-feedback" class="quiz-feedback" hidden aria-live="polite"></div>
+      <button id="next-question" class="button button-dark" hidden>Prossima domanda →</button>
+    </section>
+    <section id="quiz-result" class="result-panel" hidden aria-live="polite">
+      <p class="eyebrow">Risultato finale</p><h2 id="result-title">Hai completato il quiz</h2>
+      <p class="result-score"><span id="final-score">0/10</span><small>risposte corrette</small></p>
+      <p id="result-message"></p>
+      <div id="result-review" class="result-review"></div>
+      <div class="page-actions"><button id="restart-quiz" class="button button-dark">↻ Ripeti il quiz</button><a class="button button-outline" href="index.html">Torna all’introduzione</a><a class="button button-outline" href="dialogo.html">Rivedi il dialogo</a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>I Lumi in rete · Voltaire</span><span>Quiz didattico · 10 domande</span></footer>
+</body>
+</html>

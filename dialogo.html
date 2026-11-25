@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dialogo didattico simulato con Voltaire.">
+  <title>Dialoga con Voltaire | I Lumi in rete</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="dialogo-ai.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">L</span><span>I Lumi <em>in rete</em></span></a>
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <a href="index.html">01 · Scopri</a><a class="active" aria-current="page" href="dialogo.html">02 · Dialoga</a><a href="quiz.html">03 · Verifica</a>
+    </nav>
+  </div></header>
+  <main id="contenuto" class="page-wrap dialogue-page">
+    <div class="page-title"><p class="eyebrow">02 · Incontro interattivo</p><h1>Una conversazione<br><i>con Voltaire</i></h1><p class="section-intro">Scegli una delle domande: il philosophe risponderà in prima persona, sulla base delle sue opere e della sua biografia.</p></div>
+    <div class="simulation-alert"><strong>Simulazione didattica.</strong> Le risposte sono ricostruzioni moderne basate su fatti storici e sul pensiero documentato di Voltaire. Non sono registrazioni, citazioni letterali o testimonianze autentiche dell’autore.</div>
+    <div class="dialogue-layout">
+      <aside class="portrait-panel">
+        <!-- Inserisci qui il ritratto scelto: salva l'immagine come assets/voltaire.jpg.
+             Puoi sostituire il percorso src mantenendo un testo alternativo descrittivo. -->
+        <img id="voltaire-avatar" src="assets/voltaire.webp" alt="Ritratto di Voltaire, immagine da inserire nella cartella assets">
+        <div class="portrait-caption"><span class="status-dot"></span> Voltaire · 1694–1778 <small>Scrittore e philosophe francese</small></div>
+      </aside>
+      <section class="conversation-panel" aria-label="Conversazione con Voltaire">
+        <div class="conversation-top"><span>ARCHIVIO DELLE IDEE</span><span>10 DOMANDE</span></div>
+        <div class="speech-bubble" aria-live="polite" aria-atomic="true">
+          <p class="speaker">VOLTAIRE</p>
+          <p id="dialogue-answer">Benvenuto. Non accettare un’idea soltanto perché è antica o perché viene da una persona potente: esaminala, confronta gli argomenti e cerca le prove. Quale aspetto della mia vita vuoi conoscere?</p>
+          <p id="dialogue-reference" class="answer-reference">Seleziona una domanda qui sotto per iniziare.</p>
+        </div>
+        <section class="local-assistant" aria-labelledby="assistant-title">
+          <div class="assistant-heading">
+            <div><p class="speaker">ASSISTENTE LOCALE · IA SEMANTICA</p><h2 id="assistant-title">Fai una domanda libera</h2></div>
+            <span class="local-badge">Sul dispositivo</span>
+          </div>
+          <form id="assistant-form" class="assistant-form">
+            <label class="visually-hidden" for="assistant-question">La tua domanda su Voltaire</label>
+            <input id="assistant-question" name="question" type="search" maxlength="240" placeholder="Es. Perché fu esiliato in Inghilterra?" required>
+            <button class="button button-dark" type="submit">Cerca risposta <span aria-hidden="true">→</span></button>
+          </form>
+          <p id="assistant-status" class="assistant-status" aria-live="polite">Al primo uso scarica un modello di circa 23 MB. La domanda viene elaborata qui; la risposta è selezionata tra i contenuti verificati sotto.</p>
+        </section>
+        <h2 class="question-heading">Scegli una domanda</h2>
+        <div id="dialogue-questions" class="question-list">
+          <button class="question-button" data-question="0">01 <span>Chi sei e come mai ti chiami Voltaire?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="1">02 <span>Da dove vieni e in che epoca hai vissuto?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="2">03 <span>Che cosa significa essere un philosophe dell'Illuminismo?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="3">04 <span>Che peso hanno avuto la tua famiglia e i tuoi studi sui gesuiti nella tua formazione?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="4">05 <span>Che cosa ha rappresentato per te la prigionia alla Bastiglia e poi l'esilio in Inghilterra?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="5">06 <span>Che cosa ha significato vivere a Cirey con Émilie du Châtelet per la tua crescita intellettuale?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="6">07 <span>Come hai vissuto il rapporto con il potere assoluto e con sovrani come Federico II di Prussia?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="7">08 <span>Quali ingiustizie concrete ti hanno spinto a scendere in campo, come nel caso di Jean Calas, per combattere intolleranza e fanatismo?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="8">09 <span>Com'era il tuo rapporto con gli altri illuministi — come Diderot, d'Alembert o Rousseau — tra collaborazioni e contrasti?</span><span aria-hidden="true">↗</span></button>
+          <button class="question-button" data-question="9">10 <span>Se guardi alla tua intera esistenza, quale episodio o battaglia riassume meglio chi sei stato?</span><span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+    </div>
+    <div class="page-actions"><a class="button button-outline" href="index.html">← Torna all’introduzione</a><a class="button button-dark" href="quiz.html">Vai al quiz <span aria-hidden="true">→</span></a></div>
+  </main>
+  <footer class="site-footer"><span>I Lumi in rete · Voltaire</span><span>Simulazione didattica, non fonte storica primaria</span></footer>
+</body>
+</html>
