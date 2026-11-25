@@ -30,7 +30,11 @@ jobs:
       - name: Prepara i file del sito
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: |
+            *.html
+            *.js
+            *.css
+            assets/**
       - name: Pubblica il sito
         id: deployment
         uses: actions/deploy-pages@v4
