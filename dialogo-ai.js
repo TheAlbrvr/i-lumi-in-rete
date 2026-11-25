@@ -41,6 +41,21 @@ if (form) {
     return score;
   }
 
+  function keywordOverlap(question, candidate) {
+    const getKeywords = text => new Set(
+      text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+        .match(/[a-z0-9]+/g)?.filter(term => term.length > 3) ?? []
+    );
+    const questionTerms = getKeywords(question);
+    if (!questionTerms.size) return 0;
+    const candidateTerms = getKeywords(candidate);
+    let matches = 0;
+    questionTerms.forEach(term => {
+      if (candidateTerms.has(term)) matches++;
+    });
+    return matches / questionTerms.size;
+  }
+
   form.addEventListener("submit", async event => {
     event.preventDefault();
     const question = questionInput.value.trim();
@@ -63,7 +78,10 @@ if (form) {
       let bestIndex = 0;
       let bestScore = -Infinity;
       candidateVectors.forEach((vector, index) => {
-        const score = cosineSimilarity(vector, queryVector);
+        const answerIndex = Number(questionButtons[index].dataset.question);
+        const answerText = window.dialogueAnswers?.[answerIndex]?.text ?? "";
+        const candidate = `${prompts[index]} ${answerText}`;
+        const score = cosineSimilarity(vector, queryVector) * 0.55 + keywordOverlap(question, candidate) * 0.45;
         if (score > bestScore) {
           bestIndex = index;
           bestScore = score;
