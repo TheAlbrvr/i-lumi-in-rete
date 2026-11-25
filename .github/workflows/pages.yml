@@ -28,6 +28,46 @@ jobs:
       - name: Configura GitHub Pages
         uses: actions/configure-pages@v5
       - name: Prepara i file del sito
+        run: |
+          mkdir _site
+          cp *.html *.js *.css _site/
+          cp -R assets _site/assets
+      - name: Carica il sito per Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+      - name: Pubblica il sito
+        id: deployment
+        uses: actions/deploy-pages@v4name: Pubblica su GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica i file del progetto
+        uses: actions/checkout@v4
+      - name: Configura GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Prepara i file del sito
         uses: actions/upload-pages-artifact@v3
         with:
           path: |
