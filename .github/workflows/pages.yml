@@ -34,9 +34,9 @@ jobs:
           cp *.html *.js *.css _site/
           cp -R assets _site/assets
       - name: Carica il sito per Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
       - name: Pubblica il sito
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
